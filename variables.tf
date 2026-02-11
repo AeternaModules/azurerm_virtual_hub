@@ -23,11 +23,11 @@ EOT
     name                                   = string
     resource_group_name                    = string
     address_prefix                         = optional(string)
-    branch_to_branch_traffic_enabled       = optional(bool, false)
-    hub_routing_preference                 = optional(string, "ExpressRoute")
+    branch_to_branch_traffic_enabled       = optional(bool)   # Default: false
+    hub_routing_preference                 = optional(string) # Default: "ExpressRoute"
     sku                                    = optional(string)
     tags                                   = optional(map(string))
-    virtual_router_auto_scale_min_capacity = optional(number, 2)
+    virtual_router_auto_scale_min_capacity = optional(number) # Default: 2
     virtual_wan_id                         = optional(string)
     route = optional(object({
       address_prefixes    = list(string)
