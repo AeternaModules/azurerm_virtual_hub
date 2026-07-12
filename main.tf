@@ -13,7 +13,7 @@ resource "azurerm_virtual_hub" "virtual_hubs" {
   virtual_wan_id                         = each.value.virtual_wan_id
 
   dynamic "route" {
-    for_each = each.value.route != null ? [each.value.route] : []
+    for_each = each.value.route != null ? each.value.route : []
     content {
       address_prefixes    = route.value.address_prefixes
       next_hop_ip_address = route.value.next_hop_ip_address
