@@ -1,3 +1,7 @@
+output "virtual_hubs_id" {
+  description = "Map of id values across all virtual_hubs, keyed the same as var.virtual_hubs"
+  value       = { for k, v in azurerm_virtual_hub.virtual_hubs : k => v.id }
+}
 output "virtual_hubs_address_prefix" {
   description = "Map of address_prefix values across all virtual_hubs, keyed the same as var.virtual_hubs"
   value       = { for k, v in azurerm_virtual_hub.virtual_hubs : k => v.address_prefix }
